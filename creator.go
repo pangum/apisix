@@ -17,3 +17,9 @@ func newCreator(logger *logging.Logger, http *http.Client) (creator *Creator, er
 
 	return
 }
+
+func (c *Creator) Create(endpoint string, apiKey string) *Client {
+	return &Client{
+		Client: c.Creator.Create(endpoint, apiKey),
+	}
+}
